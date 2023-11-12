@@ -8,6 +8,7 @@ pyspark = "*"
 pandas = "*"
 pyarrow = "*"
 pyspark-stubs = "*"
+jupyter = "*"
 
 [dev-packages]
 
