@@ -1,32 +1,58 @@
 # python_pyspark_demo
 PySpark demo
 
-## List Python runtime versions with pyenv
+## Prerequisites
 
-`$ pyenv install --list`
+This project uses `asdf` for Python version management and `uv` as the package manager. Install them first:
 
-## Install Python runtime with pyenv
+### Install asdf
 
-`$ pyenv install 3.10.13`
+```bash
+# macOS
+brew install asdf
 
-## Select local Python runtime
+# Or using the official installer
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
+echo '. "$HOME/.asdf/asdf.sh"' >> ~/.zshrc
+echo '. "$HOME/.asdf/completions/asdf.bash"' >> ~/.zshrc
+```
 
-`$ pyenv local 3.10.13`
+### Install Python plugin for asdf
 
-## Create Virtual Environment in project root folder
+```bash
+asdf plugin add python
+```
 
-`$ export PIPENV_VENV_IN_PROJECT=true`
+### List available Python versions with asdf
 
-`$ pipenv --python $(pyenv which python)`
+`$ asdf list all python`
+
+### Install Python runtime with asdf
+
+`$ asdf install python 3.13.6`
+
+### Select local Python runtime
+
+`$ asdf set python 3.13.6`
+
+## Install uv
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+## Create Virtual Environment and Install Dependencies
+
+`$ uv sync`
 
 ## Activate Virtual Environment
 
-`$ pipenv shell`
+`$ source .venv/bin/activate`
 
 ## Deactivate Virtual Environment
 
-`$ exit`
+`$ deactivate`
 
 ## Remove Virtual Environment
 
-`$ pipenv --rm`
+`$ rm -rf .venv`
