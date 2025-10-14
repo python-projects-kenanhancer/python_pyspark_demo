@@ -1,14 +1,77 @@
+# Core project metadata and dependencies
 [project]
 name = "python-pyspark-demo"
 version = "0.1.0"
-description = "PySpark demo project"
+description = "PySpark demo project with comprehensive pandas exercises"
+authors = [{ name = "Kenan Hancer", email = "kenanhancer@gmail.com" }]
+readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "pyspark",
-    "pandas",
-    "pyarrow",
-    "jupyter",
+    "pyspark>=4.0.1",
+    "pandas>=2.3.3",
+    "pyarrow>=21.0.0",
+    "jupyter>=1.1.1",
+    "numpy>=2.3.3",
 ]
 
-[tool.uv]
-dev-dependencies = []
+# Development dependencies group
+[dependency-groups]
+dev = [
+    "ruff>=0.14.0",
+    "pre-commit>=4.3.0",
+    "nbqa>=1.9.1",
+    "mdformat>=0.7.22",
+]
+
+
+# Build system configuration
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+# Hatch-specific build configuration
+[tool.hatch.build.targets.wheel]
+packages = ["src"]  # Source code location
+
+# Allow direct references in dependencies
+[tool.hatch.metadata]
+allow-direct-references = true
+
+# -----------------------------
+# Linting configuration (Ruff)
+# -----------------------------
+[tool.ruff]
+line-length = 130
+
+# Rules & fixes (Ruff >= 0.4.0 supports the [tool.ruff.lint] table)
+[tool.ruff.lint]
+select = ["F", "E", "W", "C90", "I", "B"]
+fixable = ["ALL"]
+ignore = [
+    "E501",  # Line too long (handled by formatter)
+    "F403",  # Wildcard imports (from module import *)
+    "F405",  # Import may be undefined, or defined in star imports
+    "F821",  # Undefined name (for reveal_type)
+    "B008",  # do not perform function calls in argument defaults
+    "C901",  # too complex
+]
+exclude = [
+    ".git",
+    ".venv",
+    "__pycache__",
+    "build",
+    "dist",
+    "migrations",
+    ".pytest_cache",
+    ".vscode",
+    ".idea",
+    ".tox",
+    ".eggs",
+    ".mypy_cache",
+    ".ruff_cache",
+    ".ipynb_checkpoints",
+    "*.egg-info",
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["pyspark", "pandas", "numpy"]

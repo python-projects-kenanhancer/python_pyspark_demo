@@ -1,0 +1,160 @@
+{
+  // ==========================================
+  // Python Analysis & Type Checking
+  // ==========================================
+  "python.analysis.extraPaths": ["."],
+  "python.analysis.include": ["**/*.py"],
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+  "python.analysis.inlayHints.functionReturnTypes": true,
+  "python.analysis.inlayHints.variableTypes": true,
+  "python.analysis.inlayHints.callArgumentNames": "all",
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.diagnosticMode": "workspace",
+  "python.analysis.autoSearchPaths": true,
+  "python.analysis.useLibraryCodeForTypes": true,
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.completeFunctionParens": true,
+  "python.experiments.enabled": false,
+  "python.formatting.provider": "none",
+
+  // ==========================================
+  // Terminal Environment Variables
+  // ==========================================
+  "terminal.integrated.env.osx": {
+    "PYTHONPATH": "${workspaceFolder}:${env:PYTHONPATH}"
+  },
+  "terminal.integrated.env.linux": {
+    "PYTHONPATH": "${workspaceFolder}:${env:PYTHONPATH}"
+  },
+  "terminal.integrated.env.windows": {
+    "PYTHONPATH": "${workspaceFolder};${env:PYTHONPATH}"
+  },
+
+  // ==========================================
+  // File Watcher Exclusions
+  // ==========================================
+  "files.watcherExclude": {
+    "**/.git/**": true,
+    "**/.pytest_cache/**": true,
+    "**/__pycache__/**": true,
+    "**/.venv/**": true,
+    "**/htmlcov/**": true,
+    "**/.coverage*": true,
+    "**/coverage.xml": true,
+    "**/.mypy_cache/**": true,
+    "**/.ruff_cache/**": true,
+    "**/dist/**": true,
+    "**/build/**": true,
+    "**/*.egg-info/**": true,
+    "**/.tox/**": true,
+    "**/.nox/**": true,
+    "**/.hypothesis/**": true,
+    "**/logs/**": true,
+    "**/*.log": true,
+    "**/.DS_Store": true,
+    "**/.ipynb_checkpoints/**": true
+  },
+
+  // ==========================================
+  // Auto Save
+  // ==========================================
+  "files.autoSave": "onFocusChange",
+
+  // ==========================================
+  // Ruff Configuration
+  // ==========================================
+  "ruff.enable": true,
+  "ruff.fixAll": true,
+  "ruff.organizeImports": true,
+  "ruff.nativeServer": true,
+
+  // ==========================================
+  // Python Files Formatting
+  // ==========================================
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": false,
+    "editor.formatOnType": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
+      "source.organizeImports": "explicit"
+    }
+  },
+
+  // ==========================================
+  // Jupyter Notebook Language-Specific Settings
+  // ==========================================
+  "[jupyter]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
+      "source.organizeImports": "explicit"
+    }
+  },
+
+  // ==========================================
+  // Notebook-Level Settings (CRITICAL - Fixed!)
+  // ==========================================
+  "notebook.formatOnSave.enabled": true,
+  "notebook.formatOnCellExecution": false,
+  "notebook.codeActionsOnSave": {
+    "notebook.source.fixAll": "explicit",
+    "notebook.source.organizeImports": "explicit"
+  },
+  "notebook.output.textLineLimit": 1000,
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+
+  // ==========================================
+  // Jupyter Extension Settings
+  // ==========================================
+  "jupyter.askForKernelRestart": false,
+  "jupyter.notebookFileRoot": "${workspaceFolder}",
+  "jupyter.widgetScriptSources": ["jsdelivr.com", "unpkg.com"],
+  "jupyter.themeMatplotlibPlots": false,
+
+  // ==========================================
+  // Other File Types Formatting
+  // ==========================================
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+
+  // ==========================================
+  // Spell Checker
+  // ==========================================
+  "cSpell.words": [
+    "pyspark",
+    "pandas",
+    "dataframe",
+    "dataframes",
+    "numpy",
+    "matplotlib",
+    "seaborn",
+    "jupyter",
+    "ipynb",
+    "nbqa",
+    "pyarrow",
+    "ruff",
+    "hatchling",
+    "mdformat"
+  ]
+}

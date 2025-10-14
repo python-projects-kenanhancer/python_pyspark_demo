@@ -1,0 +1,51 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+      - id: check-yaml
+      - id: check-json
+      - id: check-added-large-files
+      - id: check-merge-conflict
+      - id: debug-statements
+      - id: check-docstring-first
+      - id: check-ast
+      - id: check-toml
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v4.0.0-alpha.8
+    hooks:
+      - id: prettier
+        types_or: [yaml, json, markdown]
+  - repo: local
+    hooks:
+      - id: ruff-format
+        name: ruff-format
+        entry: uv run ruff
+        language: system
+        args: [format]
+        types: [python]
+      - id: ruff-check
+        name: ruff-check
+        entry: uv run ruff
+        language: system
+        args: [check, --fix]
+        types: [python]
+      - id: nbqa-ruff-format
+        name: nbqa-ruff-format
+        entry: uv run nbqa
+        language: system
+        args: [ruff, format]
+        files: \.ipynb$
+      - id: nbqa-ruff-check
+        name: nbqa-ruff-check
+        entry: uv run nbqa
+        language: system
+        args: [ruff, check, --fix]
+        files: \.ipynb$
+      - id: mdformat
+        name: mdformat
+        entry: uv run mdformat
+        language: system
+        files: \.(md|markdown)$
