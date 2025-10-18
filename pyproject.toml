@@ -12,6 +12,7 @@ dependencies = [
     "pyarrow>=21.0.0",
     "jupyter>=1.1.1",
     "numpy>=2.3.3",
+    "ruff>=0.14.0",
 ]
 
 # Development dependencies group
